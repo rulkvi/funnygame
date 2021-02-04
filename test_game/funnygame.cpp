@@ -5,9 +5,7 @@
 bool FunnyGame::OnUserCreate()
 {
 	// Called once at the start, so create things here
-	gfxTiles.Load("./Data/blocks.png");
 
-	
 	auto & pWorld = World::instance();
 	pCamera = std::make_shared<Camera>(this);
 	pWorld.set_camera(pCamera);
@@ -24,8 +22,6 @@ bool FunnyGame::OnUserUpdate(float fElapsedTime)
 		dElapsedTime = target_time_per_frame;
 		fElapsedTime = target_time_per_frame.count();
 	}
-
-
 	// GRAPHICS
 
 	SetPixelMode(olc::Pixel::NORMAL);
@@ -35,12 +31,10 @@ bool FunnyGame::OnUserUpdate(float fElapsedTime)
 	pWorld.draw_camera();
 	pWorld.draw_bullets();
 
-
 	if (fElapsedTime < target_time_per_frame.count())
 	{
 		auto dur_to_sleep = target_time_per_frame - dElapsedTime;
 		std::this_thread::sleep_for(std::chrono::duration_cast<std::chrono::milliseconds>(dur_to_sleep));
 	}
-
 	return true;
 }
