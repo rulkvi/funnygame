@@ -19,45 +19,57 @@
     <Filter Include="Header Files\Framework">
       <UniqueIdentifier>{69a05004-4785-46fe-b001-ecec9276331d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\objects">
+      <UniqueIdentifier>{703ab560-0d56-4177-9b7d-aa9ec16b2666}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\objects">
+      <UniqueIdentifier>{ad9349f5-eedf-4960-a571-72b621db4114}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\aux">
+      <UniqueIdentifier>{66994fef-f507-4049-92dc-22611186fb76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\framework">
+      <UniqueIdentifier>{df1c1336-315e-49c6-971f-530c8c558489}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\aux">
+      <UniqueIdentifier>{2ec6d1c7-9a62-4e54-8052-b29e130ef4cb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="world.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="game_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="funnygame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="olcFramework.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>Source Files\objects</Filter>
     </ClCompile>
     <ClCompile Include="player.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="world.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Singleton.cpp">
+      <Filter>Source Files\aux</Filter>
+    </ClCompile>
+    <ClCompile Include="olcFramework.cpp">
+      <Filter>Source Files\framework</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shape.h">
       <Filter>Header Files\shapes</Filter>
     </ClInclude>
-    <ClInclude Include="world.h">
-      <Filter>Header Files\shapes</Filter>
-    </ClInclude>
     <ClInclude Include="olcPixelGameEngine.h">
       <Filter>Header Files\Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="sprite.h">
-      <Filter>Header Files\shapes</Filter>
-    </ClInclude>
-    <ClInclude Include="camera.h">
-      <Filter>Header Files\shapes</Filter>
-    </ClInclude>
-    <ClInclude Include="environment.h">
-      <Filter>Header Files\shapes</Filter>
     </ClInclude>
     <ClInclude Include="funnygame.h">
       <Filter>Header Files</Filter>
@@ -65,8 +77,29 @@
     <ClInclude Include="olcFramework.h">
       <Filter>Header Files\Framework</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="environment.h">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Header Files\shapes</Filter>
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="world.h">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.h">
+      <Filter>Header Files\aux</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

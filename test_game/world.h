@@ -1,54 +1,41 @@
 #pragma once
-#include "olcFramework.h"
-#include "shape.h"
-#include <cassert>
 #include "camera.h"
+#include "Bullet.h"
+#include "GameObject.h"
+#include "singleton.h"
+#include "environment.h"
+#include "Player.h"
 
-class Camera;
-
-class Game_object
+class World final : public Singleton<World>
 {
-protected:
-	olc::vf2d m_world_coordinates;
-	std::shared_ptr<Shape> m_shape = nullptr;
+	std::vector<std::shared_ptr<Game_object>> m_vector_of_env_objects;
+	std::list<std::shared_ptr<Bullet>> m_vector_of_bullets;
+	std::shared_ptr<Camera> m_camera;
+	std::shared_ptr<Player> m_player;
+
+	void add_borders(olc::vi2d border_begin, olc::vi2d border_end);
+
+	void add_environment(olc::vi2d border_begin, olc::vi2d border_end);
+
+	void add_player(olc::vf2d starting_pos);
 public:
-	Game_object(olc::vi2d world_coordinates):
-		m_world_coordinates(world_coordinates)
-	{}
+	World(token) {
+		add_borders(olc::vi2d(0, 0), olc::vi2d(700, 700));
+		add_player(olc::vi2d(50, 50));
+		add_environment(olc::vi2d(0, 0), olc::vi2d(700, 700));
+	};
+	void set_camera(std::shared_ptr<Camera> camera);
+	std::shared_ptr<Camera> get_camera();
+	void add_bullet(std::shared_ptr<Bullet> bullet);
 
-	virtual void draw_self(Camera& camera) = 0;
+	void remove_bullet(std::shared_ptr<Bullet> bullet);
 
-	olc::vf2d get_world_coordinates()
-	{
-		return m_world_coordinates;
-	}
-	std::shared_ptr<Shape> get_shape()
-	{
-		assert(m_shape != nullptr);
+	void update_bullets(float fElapsedTime);
+	void update_player(float fElapsedTime);
 
-		return m_shape;
-	}
-};
-
-class Weapon
-{
-	
-public:
-	Weapon()
-	{
-		
-	}
-
-	void draw_self(olc::PixelGameEngine* pge, olc::vi2d players_coords)
-	{
-		auto mouse_pos = pge->GetMousePos();
-		pge->DrawLine(mouse_pos, players_coords, olc::DARK_BLUE, 0xf0f0f0f0);
-	}
-};
-
-
-
-class World
-{
+	void draw_camera();
+	void draw_bullets();
+	void draw_environment();
 
 };
+
